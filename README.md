@@ -58,3 +58,88 @@ Key         Value
 password    12345
 user        gael
 ```
+
+Utility for extend Vault command line
+
+Vaku https://github.com/lingrino/vaku
+
+
+>root@DESKTOP-IR8COQJ:~# vaku folder list secret/gialnet
+
+services
+
+>root@DESKTOP-IR8COQJ:~# vaku folder read secret/gialnet
+
+```
+services
+    password: 12345
+    user: gael
+```
+
+>root@DESKTOP-IR8COQJ:~# vaku folder read secret/gialnet --format json
+
+```
+{
+    "services": {
+        "password": "12345",
+        "user": "gael"
+    }
+}
+```
+
+>root@DESKTOP-IR8COQJ:~# vaku folder -h
+
+```
+Commands that act on Vault folders
+
+Commands under the folder subcommand act on Vault folders. Folders
+are designated by paths that end in a '/' such as 'secret/foo/'. Vaku
+can list, copy, move, search, etc.. on Vault folders.
+
+Usage:
+  vaku folder [command]
+
+Examples:
+vaku folder list secret/foo
+
+Available Commands:
+  copy        Recursively copy all secrets in source folder to destination folder
+  delete      Recursively delete all secrets in a folder
+  delete-meta Recursively delete all secrets metadata and versions in a folder. V2 engines only.
+  list        Recursively list all paths in a folder
+  move        Recursively move all secrets in source folder to destination folder
+  read        Recursively read all secrets in a folder
+  search      Recursively search all secrets in a folder for a search string
+
+Flags:
+  -p, --absolute-path                  show absolute path in output
+  -a, --address string                 address of the Vault server
+      --destination-address string     address of the destination Vault server
+      --destination-namespace string   name of the vault namespace to use in the destination client
+      --destination-token string       token for the destination vault server (alias for --token)
+  -h, --help                           help for folder
+  -n, --namespace string               name of the vault namespace to use in the source client
+      --source-address string          address of the source Vault server (alias for --address)
+      --source-namespace string        name of the vault namespace to use in the source client (alias for --namespace)
+      --source-token string            token for the source vault server (alias for --token)
+  -t, --token string                   token for the vault server
+  -w, --workers int                    number of concurrent workers (default 10)
+
+Global Flags:
+      --format string        output format: text|json (default "text")
+  -i, --indent-char string   string used for indents (default "    ")
+  -s, --sort                 sort output text (default true)
+
+Use "vaku folder [command] --help" for more information about a command.
+```
+# Copy folder
+
+>vaku folder copy secret/gialnet kv/redmoon
+
+>root@DESKTOP-IR8COQJ:~# vaku folder list kv/redmoon --format json
+```
+[
+    "services",
+    "servers"
+]
+```
