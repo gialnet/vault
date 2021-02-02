@@ -17,4 +17,19 @@ Linux
 >export VAULT_ADDR="http://127.0.0.1:8200"
 
 
-vault kv get kv/redmoon/servers
+>PS C:\Windows\System32> vault kv get secret/gialnet/services
+
+```====== Metadata ======
+Key              Value
+---              -----
+created_time     2021-02-02T15:02:47.4430821Z
+deletion_time    n/a
+destroyed        false
+version          1
+
+====== Data ======
+Key         Value
+---         -----
+password    12345
+user        gael
+```
