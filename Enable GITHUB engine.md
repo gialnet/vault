@@ -1,10 +1,14 @@
 # Enable GITHUB engine 
 
-vault write auth/github/config organization=Vivaldi-Spring
+This option create the posibility to login with your personal Token id from Github. Vault comunicate with github and check your token. This are the steps to follow to configure Vault.
 
-vault write auth/github/map/users/gialnet value=default
+> vault auth enable github
 
->PS C:\Users\antonio> vault login -method=github token="d0f09..."
+> vault write auth/github/config organization=Vivaldi-Spring
+
+> vault write auth/github/map/users/gialnet value=default
+
+> PS C:\Users\antonio> vault login -method=github token="d0f09..."
 
 ```
 WARNING! The VAULT_TOKEN environment variable is set! This takes precedence
