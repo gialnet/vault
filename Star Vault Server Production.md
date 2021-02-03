@@ -1,12 +1,15 @@
 # Star Vault Server Production
 
 Create config file
+
 Create data folder
-mkdir data
-
-./vault server -config=config.hcl
+>mkdir data
 
 
+Start server
+>./vault server -config=config.hcl
+
+```
 >root@DESKTOP-IR8COQJ:/opt/vault# ./vault operator init
 
 Unseal Key 1: 9haQNyZ6nfhZmZX/raHhKi5RTXP4bINxdBaV1sSN+rN1
@@ -27,3 +30,4 @@ reconstruct the master key, Vault will remain permanently sealed!
 
 It is possible to generate new unseal keys, provided you have a quorum of
 existing unseal keys shares. See "vault operator rekey" for more information.
+```
