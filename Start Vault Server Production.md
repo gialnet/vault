@@ -50,3 +50,7 @@ existing unseal keys shares. See "vault operator rekey" for more information.
 ```
 
 >./vault operator unseal
+
+# Enabling/Disabling Audit Devices
+
+ >vault audit enable file file_path=/var/log/vault_audit.log
